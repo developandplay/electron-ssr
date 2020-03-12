@@ -55,9 +55,9 @@ function release () {
     config: {
       productName: 'electron-ssr',
       appId: 'me.erguotou.ssr',
-      artifactName: '${productName}-${version}.${ext}',
-      compression: 'maximum',
-      copyright: 'erguotou525@gmail.com',
+      artifactName: '${productName}.${ext}',
+      compression: 'normal',
+      copyright: 'The Electron-SSR Authors',
       files,
       extraFiles: extraFiles,
       directories: {
