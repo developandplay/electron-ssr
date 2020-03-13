@@ -5,6 +5,7 @@ import { checkUpdate } from './updater'
 import { groupConfigs } from '../shared/utils'
 import { isMac, isOldMacVersion, isWin } from '../shared/env'
 import { disabledTray, enabledHighlightTray, enabledTray, globalHighlightTray, globalTray, pacHighlightTray, pacTray } from '../shared/icon'
+import { i18n } from '../translation/i18n'
 
 let tray
 
@@ -42,9 +43,9 @@ function generateConfigSubmenus (configs, selectedIndex) {
     submenus.push({ label: 'none', enabled: false })
   }
   submenus.push({ type: 'separator' })
-  submenus.push({ label: '编辑服务器', click: handler.showManagePanel })
-  submenus.push({ label: '订阅管理', click: handler.showSubscribes })
-  submenus.push({ label: '更新订阅服务器', click: handler.updateSubscribes })
+  submenus.push({ label: i18n.__('Edit connection'), click: handler.showManagePanel })
+  submenus.push({ label: i18n.__('Manage subscription'), click: handler.showSubscribes })
+  submenus.push({ label: i18n.__('Update subscription'), click: handler.updateSubscribes })
   return submenus
 }
 
@@ -54,40 +55,40 @@ function generateConfigSubmenus (configs, selectedIndex) {
  */
 function generateMenus (appConfig) {
   const base = [
-    { label: '主界面', click: handler.showManagePanel },
-    { label: '开启应用', type: 'checkbox', checked: appConfig.enable, click: () => {
+    { label: i18n.__('Connection manager'), click: handler.showManagePanel },
+    { label: i18n.__('Proxy enabled'), type: 'checkbox', checked: appConfig.enable, click: () => {
       handler.toggleEnable()
       handler.toggleProxy(appConfig.sysProxyMode)
     } },
-    { label: 'PAC', submenu: [
-      { label: '更新PAC', click: handler.updatePac }
+    { label: i18n.__('PAC'), submenu: [
+      { label: i18n.__('Update PAC'), click: handler.updatePac }
     ] },
-    { label: '服务器', submenu: generateConfigSubmenus(appConfig.configs, appConfig.index) },
-    { label: '二维码扫描', click: handler.scanQRCode },
-    { label: '配置', submenu: [
-      { label: '选项设置...', click: handler.showOptions },
-      { label: '导入gui-config.json文件', click: handler.importConfigFromFile },
-      { label: '导出gui-config.json文件', click: handler.exportConfigToFile },
-      { label: '从剪贴板批量导入ssr://地址', click: handler.importConfigFromClipboard },
-      { label: '打开配置文件', click: handler.openConfigFile }
+    { label: i18n.__('Server'), submenu: generateConfigSubmenus(appConfig.configs, appConfig.index) },
+    { label: i18n.__('Scan QR code'), click: handler.scanQRCode },
+    { label: i18n.__('Configuration'), submenu: [
+      { label: i18n.__('General settings'), click: handler.showOptions },
+      { label: i18n.__('Import gui-config.json'), click: handler.importConfigFromFile },
+      { label: i18n.__('Export gui-config.json'), click: handler.exportConfigToFile },
+      { label: i18n.__('Import from clipboard'), click: handler.importConfigFromClipboard },
+      { label: i18n.__('Open gui-config.json'), click: handler.openConfigFile }
     ] },
-    { label: '复制http代理设置', click: handler.copyHttpProxyCode },
-    { label: '帮助', submenu: [
-      { label: '检查更新', click: () => checkUpdate(true) },
-      { label: '查看日志', click: handler.openLog },
+    { label: i18n.__('Copy proxy settings'), click: handler.copyHttpProxyCode },
+    { label: i18n.__('Help'), submenu: [
+      { label: i18n.__('Updates'), click: () => checkUpdate(true) },
+      { label: i18n.__('Log'), click: handler.openLog },
       // { label: '项目主页', click: () => { handler.openURL('https://github.com/shadowsocksrr/electron-ssr') } },
       // { label: 'Bug反馈', click: () => { handler.openURL('https://github.com/shadowsocksrr/electron-ssr/issues') } },
       // { label: '捐赠', click: () => { handler.openURL('https://github.com/erguotou520/donate') } },
-      { label: '打开开发者工具', click: handler.openDevtool }
+      { label: i18n.__('Developer tools'), click: handler.openDevtool }
     ] },
-    { label: '退出', click: handler.exitApp }
+    { label: i18n.__('Quit'), click: handler.exitApp }
   ]
   if (!isOldMacVersion) {
     base.splice(1, 0,
-      { label: '系统代理模式        ', submenu: [
-        { label: '不启用代理', type: 'checkbox', checked: appConfig.sysProxyMode === 0, click: e => changeProxy(e, 0, appConfig) },
-        { label: 'PAC代理', type: 'checkbox', checked: appConfig.sysProxyMode === 1, click: e => changeProxy(e, 1, appConfig) },
-        { label: '全局代理', type: 'checkbox', checked: appConfig.sysProxyMode === 2, click: e => changeProxy(e, 2, appConfig) }
+      { label: i18n.__('Proxy mode'), submenu: [
+        { label: i18n.__('Disable proxy'), type: 'checkbox', checked: appConfig.sysProxyMode === 0, click: e => changeProxy(e, 0, appConfig) },
+        { label: i18n.__('PAC proxy'), type: 'checkbox', checked: appConfig.sysProxyMode === 1, click: e => changeProxy(e, 1, appConfig) },
+        { label: i18n.__('Global proxy'), type: 'checkbox', checked: appConfig.sysProxyMode === 2, click: e => changeProxy(e, 2, appConfig) }
       ] }
     )
   }
