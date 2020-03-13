@@ -1,67 +1,69 @@
 # FAQ
 
+[中文](./FAQ-CN.md)
+
 <details>
   <summary>我该下哪个后缀的文件？</summary>
-  [请参考](../README.md#下载)
+  [Please refer to](../README.md#Download)
 </details>
 
 <details>
-  <summary>为什么应用无法启动？</summary>
-  <p>请先检查任务栏是否有小飞机图标！其次这种问题常见于Linux系统，建议下载系统对应的安装包使用。如果你出现了该问题，请发issue并说明清楚你的环境并附上日志。</p>
+  <summary>Why does the application not launch?</summary>
+  <p>Please check if there is a small airplane icon in the taskbar! Secondly, this problem is common in Linux systems. It is recommended to download the installation package corresponding to your system. If you have this problem, please post an issue, explain your environment and attach a log.</p>
 </details>
 
 <details>
-  <summary>为什么应用打开后白屏？</summary>
-  <p>请先下载安装最新版，已经很少遇到这类问题了，如果有，请描述清楚你的环境，并附上日志 。</p>
+  <summary>Why is the screen white after the app opens?</summary>
+  <p>Please download and install the latest version first. This kind of problem is rarely encountered. If you do, please describe your environment and attach a log.</p>
 </details>
 
 <details>
-  <summary>为什么我打开了应用但是没有代理成功？不能FQ？</summary>
-  <p>首先，确定服务器配置中有可用的服务器并选中了其中的一项。其次，确认“启用系统代理”菜单已选中。再次，尝试勾选“系统代理设置”-“全局设置”，然后查看浏览器是否已被代理。最后，点击“帮助”-“查看日志”查看<code>ssr-libev</code>是否正常运行，日志中有没有报错，如有报错请先排错（比如端口占用）。</p>
-  <p>不是说浏览器打不开google就表示代理不成功！你的浏览器可能用了其它代理模式，所以请将浏览器的代理模式设为"使用系统代理"后再试。如何判断代理到底有没有成功？首先勾选上应用的http代理，然后点击任务栏菜单的<code>复制http代理设置</code>，然后在终端（Windows请使用Git base一类的支持Linux命令操作的终端）粘贴，粘贴后使用<code>curl https://google.com</code>命令查看运行结果，如果成功返回内容则表示代理成功，否则视为失败。</p>
+  <summary>Why did my proxy connection not succeed?</summary>
+  <p>First, make sure that there are servers available in the server configuration and select one of them. Second, verify that "Enable System Agent" is selected. Again, try to check "System proxy settings" - "General settings" and see if your browser is using the proxy. Finally click "Help" - "View Log" to see if <code>ssr-libev</code> is running normally and there are no errors in the log. If there is an error, please troubleshoot it first (such as a blocked port)</p>
+  <p>Just because the browser can not connect to Google doesn't mean that the proxy doesn't work! Your browser might use another proxy mode, so please set your browser's proxy mode to "Use system proxy" and try again. How can you tell if the agent is successful? First check the http proxy in the application, then click <code>Copy proxy settings</code> in the taskbar tray and paste it in a terminal (on Windows, please use a terminal that supports Linux commands such as Git base). Use the <code>curl https://google.com</code> command to view the running results. If the content is returned successfully, the proxy is working, otherwise it doesn't.</p>
 </details>
 
 <details>
-  <summary>Linux系统下载后不会安装运行？</summary>
-  <p>请先学习Linux系统的基础知识，我们这里不教。</p>
+  <summary>Why does my Linux installation fail?</summary>
+  <p>Please learn the basics of Linux first, we can not teach you that.</p>
 </details>
 
 <details>
-  <summary>是否支持32位系统？</summary>
-  <p>支持的，但只是windows支持，其它系统不支持32位。</p>
+  <summary>Does the application support 32-bit systems?</summary>
+  <p>32-bit is only supported under Windows.</p>
 </details>
 
 <details>
-  <summary>为什么我的Linux在安装了SSR客户端后打开没有看到小飞机图标？</summary>
-  <p>尝试安装<code>libappindicator1</code>应用程序指示器。如果不行，请使用快捷键切换主界面和操作菜单，[详情请看](../README.md#快捷键)</p>
+  <summary>Why does my Linux system not show the airplane icon in the taskbar?</summary>
+  <p>Try installing the <code>libappindicator1</code> application indicator. If that doesn't work, please use the shortcut key to switch between the main interface and the menu bar,[see details](../README.md#Shortcuts)</p>
 </details>
 
 <details>
-  <summary>为什么我点击扫描二维码后没有反应，SSR配置也没加入进去？</summary>
-  <p>请确保整个屏幕中有且仅有一个正确可识别的SS(R)二维码。也有可能是ss url schema规则更新，如果是这种情况请发issue。</p>
+  <summary>Why does the SSR configuration not get added after I click scan QR-code?</summary>
+  <p>Please make sure there is only one SS(R) QR-code in the image. It is also possible that the SS url schema got updated. If this is the case, please open an issue.</p>
 </details>
 
 <details>
-  <summary>为什么我点击“查看日志”、“打开配置文件”显示的内容非常混乱？</summary>
-  <p>这2个操作会直接使用系统默认的应用分别打开<code>.log</code>和<code>.json</code>文件，所以这种情况应该是对应扩展名的系统默认应用对该文件显示有问题，请尝试直接修改这2种后缀名对应的默认程序。</p>
+  <summary>Why are the log and the profile views so confusing?</summary>
+  <p>The <code>.log</code> and <code>.json</code> files will be opened with your system default application. If you would prefer a different application, please change the default program for these file extensions.</p>
 </details>
 
 <details>
-  <summary>为什么我点击切换系统代理模式却没有效果？</summary>
-  [见已知bug](../README.md#已知Bug)
+  <summary>Why does switching the system proxy mode have no effect?</summary>
+  [See known bugs](../README.md#KnownBugs)
 </details>
 
 <details>	
-  <summary>错误日志Exception: libsodium not found</summary>	
-  <p>该错误是因为当前系统缺少libsodium库导致，Mac下使用<code>brew install libsodium</code>安装，Ubuntu可参考<a href="https://gist.github.com/jonathanpmartins/2510f38abee1e65c6d92">https://gist.github.com/jonathanpmartins/2510f38abee1e65c6d92</a>安装，Windows前往<a href="https://download.libsodium.org/libsodium/releases/">https://download.libsodium.org/libsodium/releases/</a>下载<code>libsodium-{version}-msvc.zip</code>文件并解压，复制解压目录中的<code>libsodium.dll</code>至<code>C:\windows\system32</code>目录（注意dll文件是64的还是32的）,其它系统请自行搜索。</p>	
+  <summary>Exception: libsodium not found</summary>	
+  <p>This error occurs if you are missing the libsodium library, on Mac please use <code>brew install libsodium</code> to install it, on Ubuntu please refer to <a href="https://gist.github.com/jonathanpmartins/2510f38abee1e65c6d92">https://gist.github.com/jonathanpmartins/2510f38abee1e65c6d92</a>, on Windows go to <a href="https://download.libsodium.org/libsodium/releases/">https://download.libsodium.org/libsodium/releases/</a>. Download <code>libsodium-{version}-msvc.zip</code>, unzip it and copy the <code>libsodium.dll</code> to <code>C:\windows\system32</code>  (check if the dll file is 64 or 32 bit), for other systems please do your own research.</p>	
 </details>
 
 <details>
-  <summary>加密方法、协议、混淆中没有我想设置的选项怎么办？</summary>
-  <p>请右击任务栏图标-配置-选项设置...，然后切换到SSR设置选项卡中自行添加，前提是当前使用的ssr要支持这些新增选项。</p>
+  <summary>What should I do if there are no options to set the encryption method, protocol and obfuscation?</summary>
+  <p>Please right-click the taskbar icon, go to General Settings, then go to the SSR settings tab and add it yourself. Of course your current SSR needs to support these options.</p>
 </details>
 
 <details>
-  <summary>我的linux系统提示有新版本升级，但是我点击通知并没有跳转到下载页面？</summary>
-  <p>1，建议使用AppImage包。 2，参考<a href="https://github.com/electron/electron/issues/9919">https://github.com/electron/electron/issues/9919</a>&nbsp;以及&nbsp;<a href="https://github.com/electron/electron/issues/8474">https://github.com/electron/electron/issues/8474</a></p>
+  <summary>My linux system prompts me that there is a new update, but I clicked on the notification and didn't get to the download page?</summary>
+  <p>1. It is recommended to use the AppImage. 2. See <a href="https://github.com/electron/electron/issues/9919">https://github.com/electron/electron/issues/9919</a>&nbsp; as well as &nbsp;<a href="https://github.com/electron/electron/issues/8474">https://github.com/electron/electron/issues/8474</a></p>
 </details>
